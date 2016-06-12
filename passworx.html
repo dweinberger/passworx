@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<title>passworx</title>
+		 <script type="text/javascript" src="../includes/jquery.js"></script>
+		 
+		<script type="text/javascript" src="passworx01.js"></script>
+		
+<style>
+	.infostyle {
+		font-size: 10pt;
+		color: #FFFFFF;
+	}
+	.infotxt {
+    height:15px;
+	width:200px;
+}
+.infotxtu {
+	 height:30px;
+	 width:200px;
+}
+h1 {
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	}
+.displaytxt {
+	color: #333333;
+	font-size: 11pt;
+	font-family: Bookman, Geneva, Arial, Helvetica, sans-serif;
+	vertical-align:top;}
+	
+.rowstyle{
+		border-style:solid;
+		border-width:thin;
+	    border-top: none;
+		border-right: none;
+		border-left: none;
+		border-bottom-color:#FF0000;
+		vertical-align:top;
+
+}
+.tinytext{
+	font-size:8pt;
+	text-decoration:underline;
+}
+#searchcompletion{
+	color: green;
+	font-size: 10pt;
+	font-family: Bookman, Geneva, Arial, Helvetica, sans-serif;
+	background-color:yellow;
+}
+</style>	
+<script language="javascript" type="text/javascript">
+	// window.onload=splashscreen();
+
+</script>		
+</head>
+<body onload="splashscreen();">
+
+
+<div id="outerdiv">
+<h1>Passworx <span style='font-size: 12pt'>by D. Weinberger</span></h1>
+<input type="button" onclick="revealinfo('');" value="New"> <input type="button" onclick="showhide('');" value="Hide" style="visibility:hidden" id="showhidebtn">
+Search: <textarea id="searchtxt" onkeyup="dynasearch();" style="height:15px;"></textarea><span id="searchcompletion"></span><input type="button" value="Go" onclick="doSearch();">
+<div id='newdiv' class='rowstyle'>
+	
+</div>
+
+<div id='pwddiv'>
+	
+</div>
+<div id='pwxinfo'  style='display:none;'>
+			<form id='passworxinfo' name='passwordinfo'>
+			<p class='infostyle'>Name: </p><textarea id='piname'></textarea>
+			Pwd: <textarea id='pipassword'></textarea>
+			Link: <textarea id='piurl'></textarea>
+			Comment: <textarea id='picomment'></textarea>
+			Date: <textarea id='pidate'></textarea>
+			<input id='closebutton' type=button value='Close window'>
+			<input id='applybutton' type=button value='Apply changes' onclick='applyChanges();'>
+		</form>
+</div>
+</div>
+	</body>
+</html>
