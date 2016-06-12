@@ -1,10 +1,14 @@
 <?php
 
+// Converts data file to a cvs suitable for LastPass.
+// run this in your browser. Make sure to put the path to your data file.
+
 function dp($t){
 	print("<p>" . $t . "</p>");
 }
 
-$f = file_get_contents("pwdcopy.dat");
+$dataFileName = "pwd.dat"
+$f = file_get_contents($dataFileName);
 
 $f = preg_replace("/(\x0D|\x0A)/", "\n", $f); // getthe line endings right - thank you, Andy Silva!
 //print($f);
@@ -16,6 +20,7 @@ $fa = explode("---- ", $f);
 // 	dp("f[20]: " . $fa[20]);
 $ct = count($fa);
 $o = fopen("dashlane.csv","w");
+// write the labels that LastPass expects
 fwrite($o, "url,type,username,password,hostname,extra,name,grouping\n");
 print("records found: " . $ct . "<br>");
 $rec = array();
@@ -36,7 +41,6 @@ for ($i = 0; $i < $ct; $i++){
 		// decode it
 		// turn a line into array of characters
 		$chararray = str_split($line);
-		// print("<p>Count of chars for $line:" . count($chararray));
 		$charctr = 0;
 		$decodedline = "";
 		// go through a line to decode
@@ -74,17 +78,10 @@ for ($i = 0; $i < $ct; $i++){
 	for ($n = 0; $n < 7; $n++){
 		// fwrite($o,$decodedrecord[$n]);
 		dp($n . ": " . $decodedrecord[$n]);
-		// if ($n != 6){
-// 			fwrite($o,",");
-// 		}
-// 		else {
-// 			fwrite($o,PHP_EOL);
-// 		}
 	}
-	print("<p>*************************</p>");
+	
 		
 	// write out the required info
-	//"url,type,username,password,hostname,extra,name,grouping
 	$astring = implode('',$decodedrecord); // ignore empty elements
 	if ($astring != ""){
 	fwrite($o,$decodedrecord[5] . ",,");
