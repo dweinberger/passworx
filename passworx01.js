@@ -1,3 +1,7 @@
+// forgive me
+// david weinberger
+// david@weinberger.org
+// issued under an MIT license. 
 
 	// uname pwd pwdcomment comment1 url ttitle ddate
 	var uname = new Array();
@@ -9,14 +13,11 @@
 	var ddate = new Array();
 	var CodeString = "JCYARBFEHXGLMKOIPNDSQVZTUW9802137465abcdefghijklmnopqrstuvwxyz";
     var DeCodeString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789nucfvdihmlkztgbrqpaosxweyj";
-		
-//------------------- AJAX 
-      var XMLHttpRequestObject = false; // the object that does ajax
-   // firefox only
-   	    XMLHttpRequestObject = new XMLHttpRequest();
+	
+var entrypassword = "CREATEPWD"; // create a password for entering the app	
    
 function init(){
-	//alert('init');
+
 	// reset arrays
 	url.length=0;uname.length=0;pwd.length=0;ttitle.length=0;pwdcomment.length=0;comment1.length=0;ddate.length=0;
 	var dat=getData(); // read the file
@@ -176,6 +177,8 @@ function revealinfo(e){
 	}
 	
 	// create element for displaying and upating the info
+	// [so primitive. embarrassing.]
+	
 		var ss="<div id='pwxinfo'   style='background-color:#0000C00;'>";
 		ss+="<form id='passworxinfo' name='passwordinfo'><table>";
 		ss+="<tr><td width=50px><p class='infostyle'>Title: </td><td><textarea id='pititle' class='infotxt'></textarea></td></tr>";
@@ -314,26 +317,7 @@ function savedata(){
 		thedata += encode(comment1[i]) + "\n" + encode(url[i]) + "\n" + encode(ttitle[i]) + "\n";
 		thedata += "---- " + parseInt(i + 1) + " -------";
 		
-		//enc =  encode(uname[i]);
-		//if (enc==""){enc = String.fromCharCode(39)+ String.fromCharCode(39);}
-		//thedata+="uname=" + enc;
-		//enc =  encode(pwd[i]);
-		//if (enc==""){enc = String.fromCharCode(39)+ String.fromCharCode(39);}
-		//thedata+="&pwd=" + enc;
-		//enc =  encode(pwdcomment[i]);
-		//if (enc==""){enc = String.fromCharCode(39)+ String.fromCharCode(39);}
-		//thedata+="&pwdcomment=" + enc;
-		//enc =  encode(comment1[i]);
-		//if (enc==""){enc = String.fromCharCode(39)+ String.fromCharCode(39);}
-		//thedata+="&comment=" + enc;
-		//enc =  encode(url[i]);
-		//if (enc==""){enc = String.fromCharCode(39)+ String.fromCharCode(39);}
-		//thedata+="&url=" + enc;
-		//enc =  encode(ttitle[i]);
-		//if (enc==""){enc = String.fromCharCode(39)+ String.fromCharCode(39);}
-		//thedata+="&ttitle=" + enc;/
-		//thedata+="&numb=" + "---- " + parseInt(i  + 1) + " -------";
-		//thedata = removeLfs(thedata);
+	
 		if (i != (url.length - 1)) {
 			thedata = thedata + "\n";
 		} // add LF except for last one
@@ -344,13 +328,6 @@ function savedata(){
 		
 			$.post('savepassworxdata.php', {
 				arecord: thedata,
-				//uname: uname[i],
-				//pwd:pwd[i],
-				//pwcomment:pwdcomment[i],
-				//comment:comment1[i],
-				//url:url[i],
-				//title:ttitle[i],
-				//numb:"---- " + parseInt(i  + 1) + " -------",
 				async: false,
 				success: function(listresult){
 					configfile = listresult;
@@ -669,7 +646,7 @@ $.ajax({
 
 function splashscreen(){
 	var p = prompt("Password:","");
-	if (p != "nn") {
+	if (p != entrypassword) {
 		document.getElementById("outerdiv").innerHTML = "<h2>Wrong password. Go away.</h2>";
 		return
 	}
