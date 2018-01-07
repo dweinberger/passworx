@@ -1,0 +1,335 @@
+#loginPanel{
+	position: absolute;
+	padding: 12px;
+	z-index: 100000;
+	width: 250px;
+	height: 75px;
+	top: 25px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	background-color: #3A90FF;
+	color: #FFFFFF;
+	text-align: center;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	font-size: 24px;
+	font-family: "Helvetica Neue", Helvetica, Verdana, Arial, sans;
+	-webkit-box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.75);
+}
+#loginTitle{
+	margin-top: 10px;
+	font-weight: 400;
+	font-size: 24px;
+	background-color: yellow;
+	color: black;
+	border-radius: 5px;
+	border: 3px solid #FECE79;
+}
+#loginTextbox{
+	border-radius: 5px;
+	font-size: 16px;
+	height: 20px;
+	padding-left: 8px;
+}
+
+#miniInfo{
+	position: absolute;
+	padding: 12px;
+	z-index: 100000;
+	width: 250px;
+	height: automatic;
+	overflow: auto;
+	top: 25px;
+	left: 200px;
+	background-color: #FEDFAB;
+	color: #5E0606;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	font-size: 14px;
+	font-family: "Helvetica Neue", Helvetica, Verdana, Arial, sans;
+	-webkit-box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.75);
+}
+#mintitle{
+	text-align:center;
+	font-weight: 650;
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+#hidescreen{
+	position: fixed;
+	top: 0px;
+	left: 0;
+	width: 100%;
+    height: 100%;
+	/* overflow: hidden; */
+   /*  background-size: cover; */
+  background-position: center center;
+   	background-image: url("../images/static.jpg"); 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  	/* 
+background-repeat: no-repeat;
+ 	 background-size: contain;
+ */
+
+    background-color: #043080;
+    z-index:100000;
+    /* opacity : 0.95; */
+
+}
+.infostyle {
+		font-size: 10pt;
+		color: #FFFFFF;
+	}
+.infotxt {
+  /*   height:15px; */
+/* 	width:200px; */
+	color: white;
+	position: relative;
+	clear:both;
+	font-family: "Verdana", Arial;
+}
+#mainTable{
+	width: 90%;
+	background-color: #CCCCCC;
+}
+.tblhead{
+	background-color: #18269E;
+	text-align: center;
+	color: #BCE6F5;
+}
+.textbx{
+		font-family: "Verdana", Arial;
+		font-size: 14px;
+		color: #15256A;
+		width: 300px;
+		height: 18px;
+}
+#headline{
+	color: #527EE7;
+	font-family: "Helvetica Neue";
+	font-size: 18px;
+}
+#outerdiv{
+	position: fixed;
+	top: 0;
+	background-color: #DCE1E7;
+}
+.letter{
+	background-color: #2749E7;
+	color: white;
+	font-family: "Helvetica Neue";
+	font-size: 13px;
+	margin-left: 1px;
+	margin-right: 1px;
+	padding: 2px;
+	padding-left: 4px;
+	padding-right: 4px;
+	cursor: pointer;
+	border-radius: 4px;
+}
+/* 
+.infotxtu {
+	 height:30px;
+	 width:200px;
+}
+ */
+#detailsdiv{
+	margin: auto;
+	position: fixed;
+	top: 50px; 
+	left: -400px;
+	bottom: 50px; 
+	right: 50px;
+	z-index:5;
+	width: 310px;
+	height: 385px;
+	background-color:#0B5398;
+	color: white;
+	padding: 10px;
+	-webkit-box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 29px 0px rgba(0,0,0,0.75);
+}
+#detailbtns{
+	position:relative;
+	top: 10px;
+	margin-left: 6px;
+}
+.bigbtn{
+	height: 45px;
+	font-size: 22px;
+	background-color: #4093E7;
+	color: white;
+}
+.bigbtn:hover{
+	background-color: #511BE7;
+}
+
+h1 {
+	font-family:Geneva, Arial, Helvetica, sans-serif;
+	color: blue;
+	}
+.displaytxt {
+	color: #333333;
+	font-size: 11pt;
+	font-family: Bookman, Geneva, Arial, Helvetica, sans-serif;
+	vertical-align:top;}
+	
+.rowstyle{
+		border-style:solid;
+		border-width:thin;
+	    border-top: none;
+		border-right: none;
+		border-left: none;
+		border-bottom-color:#FF0000;
+		vertical-align:top;
+}
+.wholerow{
+		background-color: #F1F6FF;
+
+}
+.tinytext{
+	font-size:8pt;
+	text-decoration:underline;
+}
+#searchcompletion{
+	color: #626262;
+	font-size: 10pt;
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	/* background-color:yellow; */
+}
+.delclass, .linkclass{
+	font-size:8pt;
+	text-decoration:none;
+	padding: 3px;
+	border-radius: 4px;
+	margin-left: 5px;
+	color: white;
+}
+.delclass{
+	border: 1px solid #DC757D;
+	color:  #DC757D;
+}
+.linkclass{
+	background-color: #4859DE;
+}
+.linkclass a{
+	text-decoration: none;
+	color: white;
+}
+.titleclass{
+	color: #0A58EC;
+	background: none;
+}
+.titleclass:hover{
+	background-color: #FEDAF0;
+}
+.gridtext{
+	color: #000082;
+}
+#picomment, #pinote{
+	height: 50px;
+}
+.datetext{
+	font-size:9px;
+}
+
+#bigletter{
+	height: 25px;
+	width: 25px;
+	position: absolute;
+	top: 20px;
+	left: 0;
+	background-color: red;
+	color: white;
+	text-align: center;
+	padding: 15px;
+	opacity: 0.9;
+}
+#lettercontent{
+	font-size: 40px;
+	text-align: center;
+	line-height: 0.6;
+	font-family: "Helvetica Neue",Helvetica,Arial,Verdana;
+	font-weight: 600;
+}
+
+#banner{
+	display: none;
+	font-family: "Helvetica Neue", "Helvetica", "Verdana", "Arial",sans;
+	width: 100%;
+	height: 30px;
+	background-color: blue;
+	color: white;
+	-webkit-box-shadow: 7px 7px 33px 0px rgba(0,0,0,0.9);
+	-moz-box-shadow: 7px 7px 33px 0px rgba(0,0,0,0.9);
+	box-shadow: 7px 7px 33px 0px rgba(0,0,0,0.9); 
+	margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+	text-align: center;
+	z-index: 20002;
+}
+.bannererror{
+	background-color: #FB0207;
+	color: white;
+}
+
+/* ---- DROPDOWN MENU -----
+  https://www.w3schools.com/css/css_dropdowns.asp
+*/
+/* Style The Dropdown Button */
+.dropbtn {
+    background-color: #8498FF;
+    color: white;
+    padding: 3px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    font-family: "Helvetica Neue",Helvetica,Verdana,Arial, sans;
+}
+
+/* Links inside the dropdown */
+.dropdown-content .menuopt {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content .menuopt:hover {background-color: #CEFCFF}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}

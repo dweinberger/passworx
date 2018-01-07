@@ -19,7 +19,7 @@ $fa = explode("---- ", $f);
 // 	dp("f[1]: " . $fa[1]);
 // 	dp("f[20]: " . $fa[20]);
 $ct = count($fa);
-$o = fopen("dashlane.csv","w");
+$o = fopen("passworx.csv","w");
 // write the labels that LastPass expects
 fwrite($o, "url,type,username,password,hostname,extra,name,grouping\n");
 print("records found: " . $ct . "<br>");
