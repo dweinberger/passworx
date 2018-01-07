@@ -1,85 +1,113 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-		<title>passworx</title>
-		 <script type="text/javascript" src="../includes/jquery.js"></script>
-		 
-		<script type="text/javascript" src="passworx01.js"></script>
-		
-<style>
-	.infostyle {
-		font-size: 10pt;
-		color: #FFFFFF;
-	}
-	.infotxt {
-    height:15px;
-	width:200px;
-}
-.infotxtu {
-	 height:30px;
-	 width:200px;
-}
-h1 {
-	font-family:Geneva, Arial, Helvetica, sans-serif;
-	}
-.displaytxt {
-	color: #333333;
-	font-size: 11pt;
-	font-family: Bookman, Geneva, Arial, Helvetica, sans-serif;
-	vertical-align:top;}
-	
-.rowstyle{
-		border-style:solid;
-		border-width:thin;
-	    border-top: none;
-		border-right: none;
-		border-left: none;
-		border-bottom-color:#FF0000;
-		vertical-align:top;
-
-}
-.tinytext{
-	font-size:8pt;
-	text-decoration:underline;
-}
-#searchcompletion{
-	color: green;
-	font-size: 10pt;
-	font-family: Bookman, Geneva, Arial, Helvetica, sans-serif;
-	background-color:yellow;
-}
-</style>	
-<script language="javascript" type="text/javascript">
-	// window.onload=splashscreen();
-
-</script>		
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="./favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+	<link type="text/css" rel="stylesheet" href="css/passworx.css">
+	<title>passworx</title>
+	<script type="text/javascript" src="./includes/jquery.js"></script>
+	<script type="text/javascript" src="./includes/jquery.visible.min.js"></script>
+	<script type="text/javascript" src="./js/passworx01.js"></script>
+			
 </head>
-<body onload="splashscreen();">
 
+<body onload="init();">
+<div id="hidescreen" style="display:none"></div>
 
 <div id="outerdiv">
-<h1>Passworx <span style='font-size: 12pt'>by D. Weinberger</span></h1>
-<input type="button" onclick="revealinfo('');" value="New"> <input type="button" onclick="showhide('');" value="Hide" style="visibility:hidden" id="showhidebtn">
-Search: <textarea id="searchtxt" onkeyup="dynasearch();" style="height:15px;"></textarea><span id="searchcompletion"></span><input type="button" value="Go" onclick="doSearch();">
-<div id='newdiv' class='rowstyle'>
+	<span id="headline">Passworx</span>
+	<input type="button" onclick='$("#detailsdiv").fadeOut(300); initNew();' value="New"> 
+	<input type="button")' onclick="hideScreen();" value="Hide" style="visibility:hidden" id="showhidebtn">
+	<input type="button" id="pwddisplaybtn" value="+Pwd" title="Show/Hide password" onclick="togglePwd()">
+	<div id="bigletter" style="display:none"><span id="lettercontent">-</span></div>
+	Search: <textarea id="searchtxt" onkeyup="dynasearch();" style="height:15px;"></textarea><span id="searchcompletion"></span>
+	<!-- <input type="button" value="Show all" onclick='showPasswords()'> -->
+	<span id="letters">
+		<span class="letter" onclick="gotoLetter('A')">A</span>
+		<span class="letter" onclick="gotoLetter('B')">B</span>
+		<span class="letter" onclick="gotoLetter('C')">C</span>
+		<span class="letter" onclick="gotoLetter('D')">D</span>
+		<span class="letter" onclick="gotoLetter('E')">E</span>
+		<span class="letter" onclick="gotoLetter('F')">F</span>
+		<span class="letter" onclick="gotoLetter('G')">G</span>
+		<span class="letter" onclick="gotoLetter('H')">H</span>
+		<span class="letter" onclick="gotoLetter('I')">I</span>
+		<span class="letter" onclick="gotoLetter('J')">J</span>
+		<span class="letter" onclick="gotoLetter('K')">K</span>
+		<span class="letter" onclick="gotoLetter('L')">L</span>
+		<span class="letter" onclick="gotoLetter('M')">M</span>
+		<span class="letter" onclick="gotoLetter('N')">N</span>
+		<span class="letter" onclick="gotoLetter('O')">O</span>
+		<span class="letter" onclick="gotoLetter('P')">P</span>
+		<span class="letter" onclick="gotoLetter('Q')">Q</span>
+		<span class="letter" onclick="gotoLetter('R')">R</span>
+		<span class="letter" onclick="gotoLetter('S')">S</span>
+		<span class="letter" onclick="gotoLetter('T')">T</span>
+		<span class="letter" onclick="gotoLetter('U')">U</span>
+		<span class="letter" onclick="gotoLetter('V')">V</span>
+		<span class="letter" onclick="gotoLetter('W')">W</span>
+		<span class="letter" onclick="gotoLetter('X')">X</span>
+		<span class="letter" onclick="gotoLetter('Y')">Y</span>
+		<span class="letter" onclick="gotoLetter('Z')">Z</span>
+	</span>
+	<!-- pulldown export menu -->
+	<div class="dropdown">
+  		<button class="dropbtn">Export</button>
+  		<div class="dropdown-content">
+			<div class="menuopt" onclick="exportToCSV()">CSV</div>
+			<div class="menuopt" onclick="exportToJson()">JSON</div>
+			<div class="menuopt" onclick="saveDataAsText()">Plain Text</div>
+  		</div>
+	</div>
 	
+	<!-- Login panel -->
+	<div id="loginPanel"  style="display:none">
+		<textarea id="loginTextbox"></textarea><br>
+		<input type="button" id="loginTitle" value="Log in" onclick="splashscreen()">
+	</div>
+
+	<!-- mini info dropdown box -->
+	<div id="miniInfo" style="display:none">
+		<div id="mintitle"></div>
+		<div id="minuname"></div>
+		<div id="minpwd"><br /></div>
+		<div id="minurl"></div>
+		<div id="mincomment"></div>
+		<div id="minnote"></div>
+		<div id="mindate"></div>
+		<input type="button" value="Go" onclick="doSearch();">
+		<input type="button" value="Edit" onclick = "$('#miniInfo').slideUp();revealinfo($('#mintitle'));">
+		<input type="button" value="Close" onclick="$('#miniInfo').slideUp()">
+	</div>
 </div>
+<div style="clear:all">&nbsp;</div>
 
 <div id='pwddiv'>
+</div>
+
+ <div id="banner"></div>
+
+<!-- detail panel -->
+
+	<div id='detailsdiv'  style='display:none;'>
+		<div class="infotxt">
+			Title:<br /><textarea id="pititle" class="textbx"></textarea><br />
+			Link:<br /><textarea id='piurl' class="textbx"></textarea><br />
+			User name:<br /><textarea id='piname' class="textbx"></textarea><br />
+			Pwd:<br /><textarea id='pipassword' class="textbx"></textarea><br />
+			Comment:<br /><textarea id='picomment' class="textbx"></textarea><br />
+			Note:<br /><textarea id='pinote' class="textbx"></textarea><br />
+			Date modified:<br /><textarea id='pidate' class="textbx"></textarea><br />
+		</div>
+		<div id="detailbtns">
+			<input id='closebutton' class="bigbtn" type=button value='Close' onclick="removeEntryForm()">
+			<input id='applybutton' class="bigbtn" type=button value='Update' onclick='modifyEntry();'>
+			<input id='newbutton' class="bigbtn" type=button value='Save as new' onclick='makeNewEntry();'>	
+		</div>
+	</div>
 	
 </div>
-<div id='pwxinfo'  style='display:none;'>
-			<form id='passworxinfo' name='passwordinfo'>
-			<p class='infostyle'>Name: </p><textarea id='piname'></textarea>
-			Pwd: <textarea id='pipassword'></textarea>
-			Link: <textarea id='piurl'></textarea>
-			Comment: <textarea id='picomment'></textarea>
-			Date: <textarea id='pidate'></textarea>
-			<input id='closebutton' type=button value='Close window'>
-			<input id='applybutton' type=button value='Apply changes' onclick='applyChanges();'>
-		</form>
-</div>
-</div>
-	</body>
+</body>
 </html>
