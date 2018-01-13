@@ -85,25 +85,23 @@ function init(){
     	// if there's an url but no title
         if ( (title == "")  && (url !== "")) {
         	var p;
-        	// strip out http://
-        	p = url.indexOf("http://");
-        	if (p > -1){
-        		url = url.substr(p + 7);
+        	// work backwards from last dot
+        	p = url.lastIndexOf(".");
+        	if (p > 0){
+        		var turl = url.substr(0,p ) ;
+        		// get prior dot
+        		var p2 = turl.lastIndexOf(".");
+        		if (p > -1){
+        			var title = turl.substr(p2 + 1 );
+        		}
+        		else { // no other dots, take the whole thing
+        			var title = turl;
+        		}
         	}
-        	// strip out www
-        	p = url.indexOf("www.");
-        	if (p > -1){
-        		url = url.substr(p + 4);
+        	else{ // no dots
+        		var title = url;
         	}
-        	// if a title, remove all after first dot
-        	p = url.indexOf(".");
-        	if (p > -1){
-        		url = url.substr(0,p);
-        	}
-        	// if new url is diff from original
-        	if (url !== originalurl){
-        		 $("#pititle").val(url);
-        	}
+        	 $("#pititle").val(title);
         	
             return false;
         }
